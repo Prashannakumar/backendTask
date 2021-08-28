@@ -1,0 +1,36 @@
+<!-- <h2>Image</h2>
+<img src="{{nasaimg}}" alt="" id="img">
+<h3>Description</h3>
+{{expl}}
+<p>Note: One light-year equals 5,878,625,370,000 miles (9.5 trillion km).</p>
+<p>
+Today's temperature : {{temp}}K </p> -->
+
+
+User name : <input type="text" #un> <br><br>
+Password : <input type="password" #pw> <br><br>
+Email id : <input type="text" #em> <br><br>
+<button (click)='doLogin(un.value, pw.value, em.value); un.value=null;pw.value=null;em.value=null'>Login</button> <br><br>
+<hr>
+<button (click)='getUsers()'>Get users</button>
+<div >
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Ussername</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let usr of userArr; index as i">
+            <tr>
+                <th scope="row">{{i+1}}</th>
+                <td>{{usr.un}}</td>
+                <td>{{usr.email}}</td>
+                <td>{{usr.pw}}</td>
+                <button (click)='removeUser(usr.un)'>Remove</button>
+            </tr>
+        </tbody>
+    </table>
+</div>
